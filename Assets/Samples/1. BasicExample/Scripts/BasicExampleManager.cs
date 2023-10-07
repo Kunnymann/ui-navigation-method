@@ -9,28 +9,6 @@ namespace example
     public class BasicExampleManager : MonoBehaviour
     {
         private UINavigation _uiNavigation;
-        public UINavigation UiNavigation
-        {
-            get
-            {
-                if (_uiNavigation == null)
-                {
-                    _uiNavigation = this.GetComponent<UINavigation>();
-                }
-                return _uiNavigation;
-            }
-        }
-
-        private static BasicExampleManager _instance;
-        public static BasicExampleManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = FindObjectOfType<BasicExampleManager>();
-                return _instance;
-            }
-        }
 
         private void Awake()
         {

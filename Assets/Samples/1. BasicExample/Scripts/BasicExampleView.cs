@@ -13,7 +13,7 @@ namespace example.uinavigation
         protected override void Start()
         {
             base.Start();
-            _nextButton.onClick.AddListener(() => BasicExampleManager.Instance.OnClickNextButton(gameObject));
+            _nextButton.onClick.AddListener(() => GetComponentInParent<BasicExampleManager>().OnClickNextButton(gameObject));
         }
     }
 }

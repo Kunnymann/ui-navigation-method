@@ -13,27 +13,33 @@ namespace uinavigation
     /// </summary>
     public partial class UINavigation : MonoBehaviour
     {
+        [SerializeField] private List<UIView> _uiViewContainer = new List<UIView>();
+
+        /// <summary>
+        /// UIView Container
+        /// </summary>
+        public List<UIView> UiViewContainer => _uiViewContainer;
+
         /// <summary>
         /// UIView 전환 애니메이션을 관리하기 위한 Queue
         /// </summary>
         private Queue<(UIView hide, UIView show)> _uiViewTransQueue;
+
         /// <summary>
         /// UIView History를 관리하기 위한 Stack
         /// </summary>
         private Stack<UIView> _views;
-        
+
         private UIView _currentView;
+
         /// <summary>
         /// 현재 활성화된 UIView
         /// </summary>
         public UIView CurrentView => _currentView;
 
-        /// <summary>
-        /// UINavigation 생성자
-        /// </summary>
-        public UINavigation()
+        private void Awake()
         {
-            UIContextManager.Initialize();
+            UIContextManager.Initialize().Navigators.Add(this);
 
             _views = new Stack<UIView>();
             _uiViewTransQueue = new Queue<(UIView hide, UIView show)>();
@@ -68,7 +74,7 @@ namespace uinavigation
         /// <returns>UIView</returns>
         public UIView PushUIView(string viewName)
         {
-            UIView show = UIViewContainer.GetUIView(viewName);
+            UIView show = _uiViewContainer.Find(x => x.name == viewName);
 
             if (show == null)
             {
@@ -88,7 +94,7 @@ namespace uinavigation
         /// <returns>UIView</returns>
         public async Task<UIView> PushUIViewAsync(string viewName)
         {
-            UIView show = UIViewContainer.GetUIView(viewName);
+            UIView show = _uiViewContainer.Find(x => x.name == viewName);
             if (show == null)
             {
                 Debug.LogWarning($"{viewName}의 UIView를 찾을 수 없습니다.");
@@ -200,6 +206,11 @@ namespace uinavigation
             _views.TryPeek(out UIView show);
             _uiViewTransQueue.Enqueue((hide, show));
             return hide;
+        }
+
+        public void CollectViews()
+        {
+            _uiViewContainer.AddRange(this.GetComponentsInChildren<UIView>());
         }
     }
 }

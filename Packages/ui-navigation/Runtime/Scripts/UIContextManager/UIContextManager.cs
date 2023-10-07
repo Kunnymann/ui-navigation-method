@@ -1,6 +1,8 @@
 using DG.Tweening;
 using UnityEngine;
 using uinavigation.uiview;
+using System.Collections.Generic;
+using System;
 
 namespace uinavigation
 {
@@ -10,6 +12,18 @@ namespace uinavigation
     public class UIContextManager : MonoBehaviour
     {
         private static UIContextManager _instance;
+        public static UIContextManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    throw new Exception("UIContextManager가 초기화되지 않았습니다.");
+                return _instance;
+            }
+        }
+
+        private List<UINavigation> _navigators = new List<UINavigation>();
+        public List<UINavigation> Navigators => _navigators;
 
         /// <summary>
         /// 초기화
@@ -21,7 +35,7 @@ namespace uinavigation
             {
                 _instance = FindObjectOfType<UIContextManager>();
                 if (_instance == null)
-                    _instance = new GameObject(UINavigation.UIContextManager_GameObject).AddComponent<UIContextManager>();
+                    _instance = new GameObject(UINavigationConst.UIContextManager_GameObject).AddComponent<UIContextManager>();
             }
             return _instance;
         }
@@ -34,8 +48,7 @@ namespace uinavigation
             DOTween.Clear();
 
             // 현재 가지고 있는 모든 UINavigator를 Dispose 처리
-
-            UIViewContainer.Dispose();
+            _navigators.Clear();
         }
     }
 }

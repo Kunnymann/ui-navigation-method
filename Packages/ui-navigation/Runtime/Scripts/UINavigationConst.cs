@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace uinavigation
 {
-    public partial class UINavigation
+    public class UINavigationConst
     {
         public static string UIContextManager_GameObject = "UIContextManager";
     }

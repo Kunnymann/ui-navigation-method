@@ -1,11 +1,13 @@
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace uinavigation.uiview
 {
+    [Serializable]
     public class UIView : MonoBehaviour
     {
         [SerializeField] float _showAnimDuration;
