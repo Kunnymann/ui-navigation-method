@@ -35,10 +35,12 @@ namespace uinavigation.uiview
                 return _uiTransitions;
             }
         }
+
         /// <summary>
         /// 해당 UIView의 현재 화면 전환 상태. 가장 첫 번째 UITransitionBase의 상태를 따른다.
         /// </summary>
         public VisibleState VisibleState => UITransitions.FirstOrDefault().VisibleState;
+
         /// <summary>
         /// 해당 UIView의 화면 전환 상태가 바뀔 때 호출되는 이벤트. 가장 첫 번째 UITransitionBase의 이벤트를 따른다.
         /// </summary>

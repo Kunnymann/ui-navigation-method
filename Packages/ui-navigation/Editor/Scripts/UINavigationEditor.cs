@@ -8,11 +8,11 @@ namespace uinavigation.editor
     [CustomEditor(typeof(UINavigation))]
     public class UINavigationEidtor : Editor
     {
-        SerializedProperty viewContainer;
+        private SerializedProperty _viewContainer;
 
         private void Awake()
         {
-            viewContainer = serializedObject.FindProperty("_uiViewContainer");
+            _viewContainer = serializedObject.FindProperty("_uiViewContainer");
         }
 
         public override void OnInspectorGUI()
@@ -20,7 +20,7 @@ namespace uinavigation.editor
             serializedObject.Update();
             EditorGUILayout.BeginVertical();
             {
-                EditorGUILayout.PropertyField(viewContainer);
+                EditorGUILayout.PropertyField(_viewContainer);
                 if (GUILayout.Button("Collect views in children"))
                 {
                     OnCollectChildrenViews();
@@ -31,7 +31,7 @@ namespace uinavigation.editor
 
         private void OnCollectChildrenViews()
         {
-            (target as UINavigation).CollectViews();
+            (target as UINavigation).CollectChildrenViews();
         }
     }
 }

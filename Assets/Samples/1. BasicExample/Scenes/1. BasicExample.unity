@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7122642, g: 0.8863318, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7122642, g: 0.8863318, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7122642, g: 0.8863318, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06256914, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6650944, g: 0.84161454, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06256914, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6650944, g: 0.84161454, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2684,6 +2684,7 @@ GameObject:
   - component: {fileID: 968647620}
   - component: {fileID: 968647622}
   - component: {fileID: 968647621}
+  - component: {fileID: 968647623}
   m_Layer: 5
   m_Name: 3rdNavigation
   m_TagString: Untagged
@@ -2744,6 +2745,18 @@ MonoBehaviour:
   - {fileID: 123284092}
   - {fileID: 1922388474}
   - {fileID: 1212714614}
+--- !u!225 &968647623
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968647619}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &982570896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,7 +3057,7 @@ GameObject:
   - component: {fileID: 1039552907}
   - component: {fileID: 1039552910}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TabController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3149,6 +3162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab19b6ceb26848d888853954e3445fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _containers:
+  - Manager: {fileID: 2145358563}
+    TabButton: {fileID: 415244571}
+  - Manager: {fileID: 1565335243}
+    TabButton: {fileID: 1569036155}
+  - Manager: {fileID: 968647621}
+    TabButton: {fileID: 1897691562}
 --- !u!1 &1104283585
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,7 +4513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06256914, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6650944, g: 0.84161454, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5454,6 +5474,7 @@ GameObject:
   - component: {fileID: 1565335242}
   - component: {fileID: 1565335244}
   - component: {fileID: 1565335243}
+  - component: {fileID: 1565335245}
   m_Layer: 5
   m_Name: 2ndNavigation
   m_TagString: Untagged
@@ -5514,6 +5535,18 @@ MonoBehaviour:
   - {fileID: 1948890258}
   - {fileID: 505166896}
   - {fileID: 1700774132}
+--- !u!225 &1565335245
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565335241}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1569036152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7087,7 +7120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7122642, g: 0.8863318, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7776,7 +7809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06256914, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6650944, g: 0.84161454, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8348,6 +8381,7 @@ GameObject:
   - component: {fileID: 2145358562}
   - component: {fileID: 2145358564}
   - component: {fileID: 2145358563}
+  - component: {fileID: 2145358565}
   m_Layer: 5
   m_Name: 1stNavigation
   m_TagString: Untagged
@@ -8408,3 +8442,15 @@ MonoBehaviour:
   - {fileID: 605565158}
   - {fileID: 943627304}
   - {fileID: 1145851124}
+--- !u!225 &2145358565
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145358561}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

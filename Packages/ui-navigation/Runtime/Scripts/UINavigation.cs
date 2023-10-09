@@ -208,8 +208,12 @@ namespace uinavigation
             return hide;
         }
 
-        public void CollectViews()
+        /// <summary>
+        /// UINavigation의 자식 UIView들을 수집하여, 컨테이너에 저장합니다.
+        /// </summary>
+        public void CollectChildrenViews()
         {
+            _uiViewContainer.Clear();
             _uiViewContainer.AddRange(this.GetComponentsInChildren<UIView>());
         }
     }

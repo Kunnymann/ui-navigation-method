@@ -3,11 +3,31 @@ using UnityEngine;
 using uinavigation;
 using uinavigation.popup;
 
-namespace example
+namespace example.uinavigation
 {
     [RequireComponent(typeof(UINavigation))]
     public class BasicExampleManager : MonoBehaviour
     {
+        private bool _init;
+        private bool _active = true;
+
+        public bool Active
+        {
+            set
+            {
+                if (_active != value)
+                {
+                    SetActive(value);
+                    if (value && !_init)
+                    {
+                        _init = value;
+                        OnInitialized();
+                    }
+                    _active = value;
+                }
+            }
+        }
+
         private UINavigation _uiNavigation;
 
         private void Awake()
@@ -16,15 +36,24 @@ namespace example
                 _uiNavigation = this.GetComponent<UINavigation>();
         }
 
-        private void Start()
+        private void OnInitialized()
         {
             _uiNavigation.PushUIView("MainView");
         }
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Backspace))
+            if (_active && Input.GetKeyUp(KeyCode.Backspace))
                 _uiNavigation.PopUIView();
+        }
+
+        private void SetActive(bool state = true)
+        {
+            var navigatorCanvas = this._uiNavigation.GetComponent<CanvasGroup>();
+
+            navigatorCanvas.alpha = state ? 1 : 0;
+            navigatorCanvas.blocksRaycasts = state;
+            navigatorCanvas.interactable = state;
         }
 
         public void OnClickNextButton(GameObject guideViewGameObject)

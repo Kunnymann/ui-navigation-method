@@ -9,33 +9,28 @@ namespace example.uinavigation
 {
     public class BasicExampleController : MonoBehaviour
     {
-        private List<Button> _childrenButtons = new List<Button>();
+        [SerializeField] private List<BasicExampleContainer> _containers; 
+
+        private void Awake()
+        {
+            foreach(var container in _containers)
+                container.TabButton.onClick.AddListener(() => OnClickTab(container.Manager));
+        }
 
         private void Start()
         {
-            int idx = 0;
-            _childrenButtons.AddRange(this.GetComponentsInChildren<Button>());
+            foreach (var container in _containers)
+                container.Manager.Active = false;
 
-            foreach(var button in _childrenButtons)
-            {
-                var currentNavigator = UIContextManager.Instance.Navigators[idx];
-                button.onClick.AddListener(() => OnClickTab(currentNavigator));
-                idx++;
-                if (idx >= UIContextManager.Instance.Navigators.Count)
-                    break;
-            }
-
-            UIContextManager.Instance.Navigators.ForEach(item => item.gameObject.SetActive(false));
         }
 
-        private void OnClickTab(UINavigation navigator)
+        private void OnClickTab(BasicExampleManager manager)
         {
-            navigator.gameObject.SetActive(true);
-            UIContextManager.Instance.Navigators.Where(x => x != navigator)
-                .ToList().ForEach(item =>
-                {
-                    item.gameObject.SetActive(false);
-                });
+            manager.Active = true;
+            _containers.Select(controller => controller.Manager)
+                .Where(item => item != manager)
+                .ToList()
+                .ForEach(m => m.Active = false);
         }
     }
 }
