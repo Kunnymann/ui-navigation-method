@@ -40,6 +40,7 @@ namespace uinavigation
         private void Awake()
         {
             UIContextManager.Initialize().Navigators.Add(this);
+            _uiViewContainer.Select(x => x._uiNavigation = this);
 
             _views = new Stack<UIView>();
             _uiViewTransQueue = new Queue<(UIView hide, UIView show)>();
@@ -100,8 +101,9 @@ namespace uinavigation
                 Debug.LogWarning($"{viewName}의 UIView를 찾을 수 없습니다.");
                 return null;
             }
-
+            _views.TryPeek(out UIView hide);
             _views.Push(show);
+            if (hide != null) await hide.Hide();
             await show.Show();
             _currentView = show;
             return show;
@@ -136,8 +138,10 @@ namespace uinavigation
                 return null;
             }
             _views.TryPop(out UIView hide);
+            _views.TryPeek(out UIView show);
             await hide.Hide();
-            _currentView = null;
+            if (show != null) await show.Show();
+            _currentView = show;
             return hide;
         }
 
@@ -213,8 +217,8 @@ namespace uinavigation
         /// </summary>
         public void CollectChildrenViews()
         {
-            _uiViewContainer.Clear();
-            _uiViewContainer.AddRange(this.GetComponentsInChildren<UIView>());
+            _uiViewContainer = this.GetComponentsInChildren<UIView>()
+                .OrderBy(x => x.transform.GetSiblingIndex()).ToList();
         }
     }
 }

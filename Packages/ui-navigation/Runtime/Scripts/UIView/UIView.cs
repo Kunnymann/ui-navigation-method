@@ -13,6 +13,9 @@ namespace uinavigation.uiview
         [SerializeField] float _showAnimDuration;
         [SerializeField] float _hideAnimDuration;
 
+        internal UINavigation _uiNavigation;
+        public UINavigation UINavigation => _uiNavigation;
+
         protected List<UITransitionBase> _uiTransitions;
 
         /// <summary>
