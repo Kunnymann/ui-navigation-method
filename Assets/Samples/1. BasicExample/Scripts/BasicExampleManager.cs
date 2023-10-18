@@ -75,7 +75,7 @@ namespace example.uinavigation
             }
             else
             {
-                Debug.LogWarning("마지막 가이드 문서입니다.");
+                Debug.LogWarning("this is the last one.");
             }
         }
     }

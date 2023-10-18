@@ -1,7 +1,5 @@
-using System;
 using UnityEditor;
 using UnityEngine;
-using uinavigation.uiview;
 
 namespace uinavigation.editor
 {

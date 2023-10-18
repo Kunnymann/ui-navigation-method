@@ -8,7 +8,6 @@ namespace example.uinavigation
     public class AsyncExampleManager : MonoBehaviour
     {
         private UINavigation _uiNavigation;
-        public UINavigation UINavigation => _uiNavigation;
 
         private void Awake()
         {
@@ -24,7 +23,7 @@ namespace example.uinavigation
         private void SetChildTargetUIView()
         {
             for (int idx = 0; idx < _uiNavigation.UiViewContainer.Count - 1; idx++)
-                (_uiNavigation.UiViewContainer[idx] as AsyncExampleView).TargetUIView = (_uiNavigation.UiViewContainer[idx + 1] as AsyncExampleView).TargetUIView;
+                (_uiNavigation.UiViewContainer[idx] as AsyncExampleView).TargetUIView = (_uiNavigation.UiViewContainer[idx + 1] as AsyncExampleView);
         }
     }
 }

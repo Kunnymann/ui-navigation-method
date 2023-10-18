@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using uinavigation.uiview;
+using uinavigation;
 
 namespace example.uinavigation
 {

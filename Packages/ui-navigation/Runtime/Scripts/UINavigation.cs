@@ -40,7 +40,7 @@ namespace uinavigation
         private void Awake()
         {
             UIContextManager.Initialize().Navigators.Add(this);
-            _uiViewContainer.Select(x => x._uiNavigation = this);
+            _uiViewContainer.ForEach(x => x._uiNavigation = this);
 
             _views = new Stack<UIView>();
             _uiViewTransQueue = new Queue<(UIView hide, UIView show)>();

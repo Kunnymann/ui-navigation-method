@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
@@ -29,14 +27,17 @@ namespace example.uinavigation
             {
                 _unityMainThreadQueue.TryDequeue(out Action action);
                 action.Invoke();
-            }                
+            }
         }
 
+        /// <summary>
+        /// 어떠한 복잡한 일을 비동기적으로 처리하면서 동시에 UIView 처리를 수행하는 샘플 코드
+        /// </summary>
         private async void DoSomeJob()
         {
             while (true)
             {
-                _jobStackedValue = _jobStackedValue + 0.01f;
+                _jobStackedValue = _jobStackedValue + 0.005f;
                 _unityMainThreadQueue.Enqueue(() => UpdateProgressBar(_jobStackedValue));
 
                 if (_jobStackedValue >= 1f)
