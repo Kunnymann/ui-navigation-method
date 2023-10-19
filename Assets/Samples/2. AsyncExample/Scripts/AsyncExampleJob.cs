@@ -13,8 +13,38 @@ namespace example.uinavigation
         [SerializeField] private UINavigation _targetNavigation;
         [SerializeField] private Slider _progressBar;
 
+        private static AsyncExampleJob _instance;
+        public static AsyncExampleJob Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = FindObjectOfType<AsyncExampleJob>();
+                return _instance;
+            }
+        }
+
         private ConcurrentQueue<Action> _unityMainThreadQueue = new ConcurrentQueue<Action>();
         private float _jobStackedValue = 0;
+
+        private bool _jobPaused = false;
+        public bool JobPaused
+        {
+            get => _jobPaused;
+            set => _jobPaused = value;
+        }
+
+        private bool _jobStarted = false;
+        public bool JobStarted
+        {
+            get => _jobStarted;
+            set => _jobStarted = value;
+        }
+
+        public void InitJob()
+        {
+            _jobStackedValue = 0;
+        }
 
         private void Start()
         {
@@ -35,8 +65,16 @@ namespace example.uinavigation
         /// </summary>
         private async void DoSomeJob()
         {
+            await UniTask.WaitUntil(() => _jobStarted);
+
             while (true)
             {
+                if (_jobPaused)
+                {
+                    await UniTask.WaitForFixedUpdate();
+                    continue;
+                }
+
                 _jobStackedValue = _jobStackedValue + 0.005f;
                 _unityMainThreadQueue.Enqueue(() => UpdateProgressBar(_jobStackedValue));
 
