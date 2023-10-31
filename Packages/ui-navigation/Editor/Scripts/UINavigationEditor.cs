@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace uinavigation.editor
@@ -7,10 +8,17 @@ namespace uinavigation.editor
     public class UINavigationEidtor : Editor
     {
         private SerializedProperty _viewContainer;
+        private ReorderableList _viewList;
 
-        private void Awake()
+        private void OnEnable()
         {
             _viewContainer = serializedObject.FindProperty("_uiViewContainer");
+            _viewList = new ReorderableList(serializedObject, _viewContainer, false, true, true, true);
+            _viewList.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "UIView Container");
+            _viewList.drawElementCallback = (rect, index, isActive, isFocused) => {
+                var element = _viewContainer.GetArrayElementAtIndex(index);
+                EditorGUI.PropertyField(rect, element, GUIContent.none);
+            };
         }
 
         public override void OnInspectorGUI()
@@ -18,11 +26,12 @@ namespace uinavigation.editor
             serializedObject.Update();
             EditorGUILayout.BeginVertical();
             {
-                EditorGUILayout.PropertyField(_viewContainer);
+                _viewList.DoLayoutList();
                 if (GUILayout.Button("Collect views in children"))
                 {
                     OnCollectChildrenViews();
                 }
+                serializedObject.ApplyModifiedProperties();
             }
             EditorGUILayout.EndVertical();
         }
