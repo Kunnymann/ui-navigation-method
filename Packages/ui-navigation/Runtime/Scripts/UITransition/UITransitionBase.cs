@@ -43,7 +43,7 @@ namespace uinavigation
 
                 if (CanvasGroup != null)
                 {
-                    CanvasGroup.blocksRaycasts = (_visibleState == VisibleState.Appeared);
+                    CanvasGroup.blocksRaycasts = (_visibleState == VisibleState.Appeared || _visibleState == VisibleState.Appearing);
                 }
 
                 switch (_visibleState)
