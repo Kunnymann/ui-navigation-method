@@ -3732,8 +3732,8 @@ GameObject:
   - component: {fileID: 1159786231}
   - component: {fileID: 1159786232}
   - component: {fileID: 1159786233}
-  - component: {fileID: 1159786234}
   - component: {fileID: 1159786235}
+  - component: {fileID: 1159786236}
   m_Layer: 5
   m_Name: MainView
   m_TagString: Untagged
@@ -3791,22 +3791,6 @@ MonoBehaviour:
   _showAnimDuration: 1
   _hideAnimDuration: 1
   _nextButton: {fileID: 2111734550}
---- !u!114 &1159786234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159786230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a678da2e3e638479efe471ecd2e3ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnChangedVisibleState:
-    m_PersistentCalls:
-      m_Calls: []
-  _slideDirection: 0
 --- !u!114 &1159786235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,6 +3801,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 664939392d1629246a80b0c34fe9be06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnChangedVisibleState:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1159786236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159786230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc5fa1375544d1488f70f054566d21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnChangedVisibleState:
