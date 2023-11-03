@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using uinavigation.uiview;
-using uinavigation;
 using uinavigation.popup;
 using Cysharp.Threading.Tasks;
 

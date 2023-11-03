@@ -1,0 +1,33 @@
+{
+  "name": "ui-navigation-method",
+  "displayName": "UI Navigation Method",
+  "version": "1.0.2",
+  "unity": "2021.3",
+  "description": "UI Navigation Method For Unity",
+  "keywords": [
+    "UI",
+    "Navigation",
+    "UI Navigation",
+    "Kunnymann"
+  ],
+  "author": {
+    "name": "Kunnymann",
+    "email": "dev.keonhee@gmail.com",
+    "url": "https://cold-meadow-2843.fly.dev/"
+  },
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "samples": [
+    {
+      "displayName": "Simple basic example",
+      "description": "Simple example implemented using UI Navigation Method",
+      "path": "Samples/1. BasicExample"
+    },
+    {
+      "displayName": "Simple async example",
+      "description": "Simple example implemented using UI navigation methods with async job",
+      "path": "Samples/2. AsyncExample"
+    }
+  ]
+}

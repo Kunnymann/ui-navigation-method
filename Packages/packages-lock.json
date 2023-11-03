@@ -135,8 +135,8 @@
       },
       "url": "https://packages.unity.com"
     },
-    "ui-navigation": {
-      "version": "file:ui-navigation",
+    "ui-navigation-method": {
+      "version": "file:ui-navigation-method",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
