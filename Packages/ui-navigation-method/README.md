@@ -28,6 +28,24 @@ UIView 마다, 다양한 Animation을 적용시킬 수 있습니다. 또한, 다
 
 더불어, 애니메이션은 UIPopup에서도 동일하게 동작합니다.
 
+## 설치
+
+1. 몇 가지 플러그인에 Dependency가 존재하므로, 중복되지 않는지 확인하시길 바랍니다.
+
+**사용된 플러그인**
+
+| name    | url                                | version |
+|---------|------------------------------------|---------|
+| UniRX   | https://github.com/neuecc/UniRx    | 7.1.0   |
+| DOTween | https://dotween.demigiant.com/     | 1.2.7   |
+| UniTask | https://github.com/Cysharp/UniTask | 2.3.3   |
+
+만약, 플러그인 충돌이 발생한다면 Develop 브랜치의 [Packages](https://github.com/Kunnymann/ui-navigation-method/tree/develop/Packages/ui-navigation-method)를 직접 다운로드 받아, 플래그인들을 수정하시면 됩니다. 추후, .unitypackage 파일을 공유하겠습니다.
+
+2. Editor에서 Window/Package Manager를 선택하여, Package Manager 윈도우를 엽니다.
+3. *Add package from git URL...*을 선택하고, git url (https://github.com/Kunnymann/ui-navigation-method.git)을 입력합니다.
+4. Sample을 import하면 예제를 확인할 수 있습니다.
+
 ## 구성
 
 ### UIView
@@ -203,10 +221,6 @@ public class ExampleAnimation : UITransitionBase
 }
 ```
 
-## 사용된 플러그인
+### License
 
-| name    | url                                |
-|---------|------------------------------------|
-| UniRX   | https://github.com/neuecc/UniRx    |
-| DOTween | https://dotween.demigiant.com/     |
-| UniTask | https://github.com/Cysharp/UniTask |
+This package is under the MIT License.
