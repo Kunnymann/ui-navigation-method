@@ -4,7 +4,7 @@
 
 ![title](https://github.com/Kunnymann/ui-navigation-method/blob/develop/main.png)
 
-디자이너와 개발자의 협업과 Unity상 Scene 충돌 방지를 최소화하기 위해, 개발되었습니다. 더불어, 사용자에게 친화적인 인터페이스를 제공을 목적으로 하고 있습니다.
+디자이너와 개발자의 협업과 Unity상 Scene 충돌 방지를 최소화하기 위해, 개발되었습니다. 더불어, 사용자에게 친화적인 인터페이스를 제공을 목적으로 하고 있습니다 (https://github.com/Kunnymann/ui-navigation-method).
 
 ## 요약
 
